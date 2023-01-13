@@ -1,6 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function Editor({ setHair, setTorso, setLegs, setShoes, setName }) {
+  const [inputName, setInputName] = useState('');
+
+  const handleName = (e) => {
+    console.log(e.target.value);
+
+    setName((currentState) => [...currentState, inputName]);
+    setInputName('');
+  };
+
   return (
     <div className="Editor">
       <div>
@@ -44,9 +53,8 @@ export default function Editor({ setHair, setTorso, setLegs, setShoes, setName }
         </select>
       </div>
       <h1>Player Name</h1>
-      <input type="text" onChange={(e) => setName(e.target.value)} />
-
-      <button>Submit</button>
+      <input value={inputName} type="text" onChange={(e) => setInputName(e.target.value)} />
+      <button onClick={handleName}>Submit</button>
     </div>
   );
 }

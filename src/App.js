@@ -12,7 +12,7 @@ function App() {
   const [torso, setTorso] = useState('lebrontorso');
   const [legs, setLegs] = useState('lebronlegs');
   const [shoes, setShoes] = useState('nike');
-  const [name, setName] = useState('lebron');
+  const [name, setName] = useState('');
 
   return (
     <div className="App">
