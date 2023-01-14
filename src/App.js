@@ -12,7 +12,13 @@ function App() {
   const [torso, setTorso] = useState('lebrontorso');
   const [legs, setLegs] = useState('lebronlegs');
   const [shoes, setShoes] = useState('nike');
-  const [name, setName] = useState('');
+  const [name, newName] = useState('');
+  const [nameArray, setNameArray] = useState([]);
+
+  const addName = () => {
+    setNameArray((currentState) => [...currentState, name]);
+    newName('');
+  };
 
   const [headCount, headCountChanged] = useState(0);
   const [torsoCount, torsoCountChanged] = useState(0);
@@ -40,8 +46,10 @@ function App() {
           setTorso={setTorso}
           setLegs={setLegs}
           setShoes={setShoes}
-          setName={setName}
           increment={increment}
+          addName={addName}
+          name={name}
+          newName={newName}
         />
         <Stats
           headCount={headCount}
@@ -49,7 +57,7 @@ function App() {
           legsCount={legsCount}
           shoesCount={shoesCount}
         />
-        <Display hair={hair} torso={torso} legs={legs} shoes={shoes} name={name} />
+        <Display hair={hair} torso={torso} legs={legs} shoes={shoes} nameArray={nameArray} />
       </div>
     </div>
   );

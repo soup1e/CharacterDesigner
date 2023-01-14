@@ -1,5 +1,6 @@
 import React from 'react';
+import './header.css';
 
 export default function Header() {
-  return <div>NBA Player Creator</div>;
+  return <div className="header">NBA Player Creator</div>;
 }

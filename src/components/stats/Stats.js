@@ -1,4 +1,5 @@
 import React from 'react';
+import './stats.css';
 
 export default function Stats({ headCount, torsoCount, legsCount, shoesCount }) {
   return (

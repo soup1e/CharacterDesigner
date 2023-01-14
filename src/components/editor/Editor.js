@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-
-export default function Editor({ setHair, setTorso, setLegs, setShoes, setName, increment }) {
-  const [inputName, setInputName] = useState('');
-
-  const handleName = (e) => {
-    console.log(e.target.value);
-
-    setName((currentState) => [...currentState, inputName]);
-    setInputName('');
-  };
-
+import React from 'react';
+import './editor.css';
+export default function Editor({
+  setHair,
+  setTorso,
+  setLegs,
+  setShoes,
+  increment,
+  addName,
+  name,
+  newName,
+}) {
   return (
     <div className="Editor">
       <div>
@@ -73,8 +73,8 @@ export default function Editor({ setHair, setTorso, setLegs, setShoes, setName, 
         </select>
       </div>
       <h1>Player Name</h1>
-      <input value={inputName} type="text" onChange={(e) => setInputName(e.target.value)} />
-      <button onClick={handleName}>Submit</button>
+      <input value={name} type="text" onChange={(e) => newName(e.target.value)} />
+      <button onClick={addName}>Submit Name</button>
     </div>
   );
 }
