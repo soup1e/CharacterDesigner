@@ -1,0 +1,16 @@
+.display {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+}
+
+.names {
+  display: flex;
+  flex-direction: column;
+}
+
+.images {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
