@@ -14,6 +14,23 @@ function App() {
   const [shoes, setShoes] = useState('nike');
   const [name, setName] = useState('');
 
+  const [headCount, headCountChanged] = useState(0);
+  const [torsoCount, torsoCountChanged] = useState(0);
+  const [legsCount, legsCountChanged] = useState(0);
+  const [shoesCount, shoesCountChanged] = useState(0);
+
+  const increment = (part) => {
+    if (part === 'hair') {
+      headCountChanged((state) => state + 1);
+    } else if (part === 'torso') {
+      torsoCountChanged((state) => state + 1);
+    } else if (part === 'legs') {
+      legsCountChanged((state) => state + 1);
+    } else if (part === 'shoes') {
+      shoesCountChanged((state) => state + 1);
+    }
+  };
+
   return (
     <div className="App">
       <Header />
@@ -24,8 +41,14 @@ function App() {
           setLegs={setLegs}
           setShoes={setShoes}
           setName={setName}
+          increment={increment}
         />
-        <Stats />
+        <Stats
+          headCount={headCount}
+          torsoCount={torsoCount}
+          legsCount={legsCount}
+          shoesCount={shoesCount}
+        />
         <Display hair={hair} torso={torso} legs={legs} shoes={shoes} name={name} />
       </div>
     </div>
